@@ -42,6 +42,7 @@ class TextController extends Controller
       //faire une condition pour ajouter l'id conso
       //sur base du nom renvoyé
       $text=Text::create($request->all());
+     
       return response()->json($text, 201);
 
 

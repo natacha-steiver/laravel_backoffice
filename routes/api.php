@@ -48,8 +48,8 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 
 
   //langues
-  Route::get('langues', 'App\Http\Controllers\LangueController@index');
-  Route::get('langues/{id}', 'App\Http\Controllers\LangueController@show');
+  Route::middleware(['role:super-admin','auth:api'])->get('langues', 'App\Http\Controllers\LangueController@index');
+  Route::middleware(['role:super-admin','auth:api'])->get('langues/{id}', 'App\Http\Controllers\LangueController@show');
   Route::middleware(['role:super-admin','auth:api'])->post('langues', 'App\Http\Controllers\LangueController@store');
   Route::middleware(['role:super-admin','auth:api'])->put('langues/{id}', 'App\Http\Controllers\LangueController@update');
   Route::middleware(['role:super-admin','auth:api'])->delete('langues/{id}', 'App\Http\Controllers\LangueController@destroy');
